@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlatformMove : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 55f;
     public float disapperRadius = 25f;
     public float minRandomRange = -2f;
     public float maxRandomRange = 2f;

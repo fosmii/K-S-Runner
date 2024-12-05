@@ -136,9 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5883ca7093b0de44a666100455b3a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 7.51
-  platformCheck: {fileID: 0}
+  jumpForce: 10
+  platformCheck: {fileID: 2038006881309063482, guid: abaceb018ee664344ab149c5e3214c52, type: 3}
   platformLayer:
     serializedVersion: 2
-    m_Bits: 0
-  platformCheckRadius: 0.2
+    m_Bits: 64
+  platformCheckRadius: 1.15

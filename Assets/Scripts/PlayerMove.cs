@@ -1,13 +1,19 @@
 using UnityEngine;
-using System.Collections;
+using System.Threading.Tasks;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float jumpForce = 5f;
+    public float minJumpForce = 5f;
+    public float fallForce = 5f;
     public Transform platformCheck;
     public LayerMask platformLayer;
     public float platformCheckRadius = 0.2f;
+    //public float whileJumpScale = 0.2f;
+    public int maxJumpCount = 2;
 
+
+    private int jumpCount;
+    //private float whileJump;
     private Rigidbody2D rb;
     private bool isPlatformed;
 
@@ -20,10 +26,23 @@ public class PlayerMove : MonoBehaviour
     {
 
         isPlatformed = Physics2D.OverlapCircle(platformCheck.position, platformCheckRadius, platformLayer);
-
-        if (Input.GetKeyDown(KeyCode.Space) && isPlatformed)
+        if (isPlatformed)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpCount = maxJumpCount;
+        }
+
+
+        if(Input.GetKeyDown(KeyCode.Space) && jumpCount > 1)
+        {
+            jumpCount--;
+            rb.velocity = new Vector2(rb.velocity.x, (minJumpForce + whileJump) * 1);
+            //Debug.Log(whileJump);
+        }
+        if (rb.velocity.y < 0)
+        {
+            //Debug.Log("gavgav");
+            rb.AddForce(Vector2.down * fallForce);
+            //whileJump = 0f;
         }
     }
 
