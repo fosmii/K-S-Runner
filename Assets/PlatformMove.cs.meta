@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: 054b7e00aa6db944a93b6b443252911a
+guid: 6d5a52af638c62743b47d73c5a3da46b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - platform: {fileID: 483783267541639193, guid: 1ab11bf3207cb8d409148e14e3eb6bcd, type: 3}
+  - camera: {fileID: 601938821553665137, guid: 472259637f109d2408cea0844e0d88fb, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

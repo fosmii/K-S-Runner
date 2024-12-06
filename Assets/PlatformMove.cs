@@ -17,7 +17,7 @@ public class PlatformMove : MonoBehaviour
         {
             Destroy(gameObject);
 
-            var go = Instantiate(platform, new Vector2(disapperRadius, Random.Range(minRandomRange, maxRandomRange)), Quaternion.identity);
+            var go = Instantiate(platform, new Vector2(disapperRadius + Random.Range(minRandomRange, maxRandomRange), Random.Range(minRandomRange, maxRandomRange)), Quaternion.identity);
             go.GetComponent<PlatformMove>().enabled = true;
             go.GetComponent<BoxCollider2D>().enabled = true;
         }
