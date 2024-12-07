@@ -11,13 +11,14 @@ public class PlayerMove : MonoBehaviour
     public int maxJumpCount = 2;
 
 
-    private int jumpCount;
+    public int jumpCount;
     private Rigidbody2D rb;
     private bool isPlatformed;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Application.targetFrameRate = 120;
     }
 
     void Update()
@@ -30,7 +31,7 @@ public class PlayerMove : MonoBehaviour
         }
 
 
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0) && jumpCount > 1)
+        if ((Input.GetMouseButtonDown(0)) && jumpCount > 1)
         {
             jumpCount--;
             rb.velocity = new Vector2(rb.velocity.x, (minJumpForce) * 1);
