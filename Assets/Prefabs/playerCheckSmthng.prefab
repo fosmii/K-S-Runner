@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2038006881309063482}
   - component: {fileID: 746822017324605434}
   m_Layer: 0
-  m_Name: playerPlatformCheck
+  m_Name: playerCheckSmthng
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

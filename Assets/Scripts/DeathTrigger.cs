@@ -3,14 +3,17 @@ using UnityEngine;
 
 public class DeathTrigger : MonoBehaviour
 {
-
-    void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Respawn") 
+        Death(collision);
+    }
+
+    void Death(Collider2D collision)
+    {
+        if (collision.tag == "Respawn")
         {
             SceneManager.LoadScene(0);
         }
     }
-
 
 }

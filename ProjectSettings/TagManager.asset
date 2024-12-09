@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+  - ScoreTag
+  - NEGR
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Coin
   - Water
   - UI
   - Platform
