@@ -17,12 +17,11 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rb;
     private bool isPlatformed;
     public ScoreText ScoreTextScript;
-    public PlatformMove PlatformMove;
+    public Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        PlatformMove = GameObject.FindGameObjectWithTag("Platform").GetComponent<PlatformMove>();
         Application.targetFrameRate = 120;
     }
 
@@ -33,23 +32,24 @@ public class PlayerMove : MonoBehaviour
         if (isPlatformed)
         {
             jumpCount = maxJumpCount;
+            animator.SetBool("Jumping", false);
+        }
+        else
+        {
+            animator.SetBool("Jumping", true);
         }
 
 
-        if ((Input.GetMouseButtonDown(0)) && jumpCount > 1)
+        if ((Input.GetMouseButtonDown(0)) && jumpCount >= 1)
         {
             jumpCount--;
             rb.velocity = new Vector2(rb.velocity.x, (minJumpForce) * 1);
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            Debug.Log(dashLenght);
-            PlatformMove.Dash(dashLenght);
+            animator.SetFloat("rbvelocityY", rb.velocity.y);
         }
 
         if (rb.velocity.y < 0)
         {
+            animator.SetFloat("rbvelocityY", rb.velocity.y);
             rb.AddForce(Vector2.down * fallForce);
         }
     }

@@ -17,6 +17,7 @@ public class PlatformMove : MonoBehaviour
     public PlayerMove playerMove;
     public ScoreText ScoreText;
     private float randomPlatform;
+    private GameObject prefab; 
 
 
     void Update()
@@ -34,36 +35,22 @@ public class PlatformMove : MonoBehaviour
 
             if (randomPlatform < 0.3f)                     //30% Spawn Default Platform
             {
-                PlatformInstantiate(platforms[0]);
+                PlatformInstantiate(platforms[0], null);
             }
             else if (randomPlatform < 0.8f)                //50% Spawn Platform with coins
             {
-                float coins = Random.Range(0f, 1f);
-                if (coins <= 0.5f)
-                {
-                    PlatformInstantiate(platforms[1]);
-                }
-                else
-                {
-                    PlatformInstantiate(platforms[2]);
-                }
+                int coins = Random.Range(1, 3);
+                Debug.Log(platforms[coins] + " " + coin);
+                PlatformInstantiate(platforms[coins], "Coin");
             }
             else if (randomPlatform <= 1f)                 //20% Spawn Platform with spikes
             {
-                float spikes = Random.Range(0f, 1f);
-                if (spikes < 0.3f)
-                {
-                    PlatformInstantiate(platforms[3]);
-                }
-                else if (spikes < 0.6f)                
-                {
-                    PlatformInstantiate(platforms[4]);
-                }
-                else
-                {
-                    PlatformInstantiate(platforms[5]);
-                }
+                int spikes = Random.Range(3,6);
+                Debug.Log(platforms[spikes] + " "+ spikes);
+                PlatformInstantiate(platforms[spikes], "Spike");
+                
             }
+            
         }
     }
 
@@ -73,17 +60,27 @@ public class PlatformMove : MonoBehaviour
         Gizmos.DrawWireSphere(camera.position, disapperRadius);
     }
 
-    void PlatformInstantiate(GameObject platformPrefab)
+    void PlatformInstantiate(GameObject platformPrefab, string tag)
     {
         Vector2 newPlatformPosition = new Vector2(disapperRadius + Random.Range(minRandomRange, maxRandomRange), Random.Range(minRandomRange, maxRandomRange));
         GameObject newPlatform = Instantiate(platformPrefab, new Vector2(disapperRadius + Random.Range(minRandomRange, maxRandomRange), Random.Range(minRandomRange, maxRandomRange)), Quaternion.identity);
         newPlatform.GetComponent<PlatformMove>().enabled = true;
         newPlatform.GetComponent<PlatformMove>().ScoreText = ScoreText;
         newPlatform.GetComponent<BoxCollider2D>().enabled = true;
-    }
-
-    public void Dash(float dashLength)
-    {
-        transform.Translate(Vector2.left * dashLength * speed * Time.deltaTime);
+        prefab = null;
+        if (tag != null)
+        {
+            prefab = GameObject.FindGameObjectWithTag(tag);
+            if (tag == "Coin" && prefab != null)
+            {
+                prefab.GetComponent<CircleCollider2D>().enabled = true;
+                prefab.GetComponent<CoinTrigger>().enabled = true;
+            }
+            else if (tag == "Spike" && prefab != null)
+            {
+                prefab.GetComponent<PolygonCollider2D>().enabled = true;
+            }
+        }
+        
     }
 }

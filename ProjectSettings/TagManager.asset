@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Platform
   - ScoreTag
-  - NEGR
+  - Coin
+  - Spike
   layers:
   - Default
   - TransparentFX

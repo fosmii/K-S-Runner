@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class cameraControl : MonoBehaviour
+public class CameraControl : MonoBehaviour
 {
     public Transform player;
     [SerializeField] private float boxCameraY;
@@ -15,6 +15,7 @@ public class cameraControl : MonoBehaviour
     {
         if ((player.position.y > transform.position.y + boxCameraY) || (player.position.y < transform.position.y - boxCameraY))
         {
+            Debug.Log(player.position.y);
             var newVector3 = new Vector3(transform.position.x, player.position.y, transform.position.z);
             transform.position = Vector3.Lerp(transform.position, newVector3, cameraSpeedFollow * Time.deltaTime);
         }
