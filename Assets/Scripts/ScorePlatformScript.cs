@@ -1,28 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using TMPro;
 using UnityEngine;
 
 public class ScorePlatformScript : MonoBehaviour
 {
-    public float ScoreDistance;
-    private float speed;
+    public LocalSaveSystem LocalSaveSystem;
+    public float scoreDistance;
+    public int intScoreDistance;
+    public float score—oefficient = 5f;
+    public float speedScale = 0.001f;
+    public float fspeed;
+    private double speedSqrt = 0;
+    private double speed;
+
     private Vector2 StartPositionX;
-    public PlatformMove PlatformMove;
+
 
     void Start()
     {
         StartPositionX = transform.position;
-
+        LocalSaveSystem = GameObject.FindGameObjectWithTag("Manager").GetComponent<LocalSaveSystem>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        GameObject platform = GameObject.FindGameObjectWithTag("Platform");
-        PlatformMove compPlatform = platform.GetComponent<PlatformMove>();
-        speed = compPlatform.speed;
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
-        ScoreDistance = Vector2.Distance(StartPositionX, transform.position);
+        speed = Math.Sqrt(speedSqrt);
+        fspeed = Convert.ToSingle(speed) + score—oefficient;
+        transform.Translate(Vector2.left * fspeed * Time.deltaTime);
+        scoreDistance = Vector2.Distance(StartPositionX, transform.position);
+        scoreDistance -= scoreDistance % 1;
+        intScoreDistance = Convert.ToInt32(scoreDistance);
+        Debug.Log(intScoreDistance);
 
+        LocalSaveSystem.AddScore(intScoreDistance);
+    }
+    private void FixedUpdate()
+    {
+        speedSqrt += speedScale;
     }
 }

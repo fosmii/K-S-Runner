@@ -1,23 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 
 public class CoinTrigger : MonoBehaviour
 {
-    public ScoreText ScoreTextScript;
-
+    public LocalSaveSystem LocalSaveSystem;
+    public TMP_Text coinCountText;
+    public int coinCount = 0;
     private void Start()
     {
-        ScoreTextScript = GameObject.FindGameObjectWithTag("ScoreTag").GetComponent<ScoreText>();
+        LocalSaveSystem = GameObject.FindGameObjectWithTag("Manager").GetComponent<LocalSaveSystem>();
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Respawn")
         {
-            ScoreTextScript.ScoreUpdate(5);
+            LocalSaveSystem.AddCoins(1);
         }
         Destroy(gameObject);
     }
+    
 }

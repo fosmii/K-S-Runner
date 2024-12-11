@@ -16,7 +16,6 @@ public class PlayerMove : MonoBehaviour
     public int jumpCount;
     private Rigidbody2D rb;
     private bool isPlatformed;
-    public ScoreText ScoreTextScript;
     public Animator animator;
 
     void Start()
@@ -29,7 +28,7 @@ public class PlayerMove : MonoBehaviour
     {
 
         isPlatformed = Physics2D.OverlapCircle(checkSmthng.position, platformCheckRadius, platformLayer);
-        if (isPlatformed)
+        if (isPlatformed && Mathf.Abs(rb.velocity.y) < 0.1f)
         {
             jumpCount = maxJumpCount;
             animator.SetBool("Jumping", false);

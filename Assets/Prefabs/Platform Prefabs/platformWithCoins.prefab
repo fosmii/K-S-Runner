@@ -128,24 +128,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d5a52af638c62743b47d73c5a3da46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  platformSpeed: 5
   disapperRadius: 38
   minRandomRange: -2
   maxRandomRange: 2
-  spike: {fileID: 217866764535830324, guid: 733c970128f81e443a18b21363e54963, type: 3}
-  spikeHeight: 0.5
-  coin: {fileID: 8122270668016192936, guid: 204db20bc1c0f8449b746fedfcc112d6, type: 3}
-  coinHeight: 1.5
   platforms:
   - {fileID: 483783267541639193, guid: 1ab11bf3207cb8d409148e14e3eb6bcd, type: 3}
   - {fileID: 5469745295578112929, guid: d3e48bebb0467ba4a9283d78733c509a, type: 3}
   - {fileID: 5469745295578112929}
-  - {fileID: 5469745295578112929, guid: e45f816d92cd43b4d81582e33768ae4e, type: 3}
   - {fileID: 5469745295578112929, guid: 7fc97037820c9cc46aa480c363ff7ec0, type: 3}
   - {fileID: 5469745295578112929, guid: c9d0c72400672d74aa90c69a3200ea39, type: 3}
   camera: {fileID: 601938821553665137, guid: 472259637f109d2408cea0844e0d88fb, type: 3}
   playerMove: {fileID: 1080714145862810729, guid: 62e5c64d5b93be24e81bc05b6fcb4e7f, type: 3}
-  ScoreText: {fileID: 0}
+  ScorePlatform: {fileID: 9151352345717015429, guid: 9ebffba0d81171a448d7e39eb8429584, type: 3}
+  ScorePlatformScript: {fileID: 0}
 --- !u!331 &5213437597914560844
 SpriteMask:
   m_ObjectHideFlags: 0
