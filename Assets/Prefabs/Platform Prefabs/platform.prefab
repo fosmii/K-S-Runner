@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3971290275238922979}
   - component: {fileID: 1043802205993091938}
   - component: {fileID: 362284493430078196}
+  - component: {fileID: 4204940870010132999}
   m_Layer: 6
   m_Name: platform
   m_TagString: Platform
