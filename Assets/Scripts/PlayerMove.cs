@@ -43,12 +43,12 @@ public class PlayerMove : MonoBehaviour
         {
             jumpCount--;
             rb.velocity = new Vector2(rb.velocity.x, (minJumpForce) * 1);
-            animator.SetFloat("rbvelocityY", rb.velocity.y);
-        }
 
+        }
+        animator.SetFloat("rbvelocityY", rb.velocity.y);
         if (rb.velocity.y < 0)
         {
-            animator.SetFloat("rbvelocityY", rb.velocity.y);
+            
             rb.AddForce(Vector2.down * fallForce);
         }
     }
