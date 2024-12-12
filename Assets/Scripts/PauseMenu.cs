@@ -20,14 +20,12 @@ public class PauseMenu : MonoBehaviour
 
     private void Pause()
     {
-        pauseMenuUI.SetActive(true); // Показываем меню паузы
         Time.timeScale = 0f; // Останавливаем игровое время
         isPaused = true; // Ставим флаг паузы
     }
 
     private void Resume()
     {
-        pauseMenuUI.SetActive(false); // Скрываем меню паузы
         Time.timeScale = 1f; // Возвращаем нормальное время
         isPaused = false; // Снимаем флаг паузы
     }

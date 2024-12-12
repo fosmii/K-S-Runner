@@ -99,8 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1800741fb171a4f9427d30a8844102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinUI: {fileID: 8569951888695939940, guid: f44c3081574f7f64199e016fae6b4a0d, type: 3}
-  CoinText: {fileID: 4293085106332015352, guid: 6c495228cdec3394ea08e9e0d946736b, type: 3}
+  LocalSaveSystem: {fileID: 0}
   coinCountText: {fileID: 6957860539684442272, guid: 6c495228cdec3394ea08e9e0d946736b, type: 3}
   coinCount: 0
 --- !u!95 &3635998376168564541

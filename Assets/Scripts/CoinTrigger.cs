@@ -19,6 +19,7 @@ public class CoinTrigger : MonoBehaviour
         if (collision.tag == "Respawn")
         {
             LocalSaveSystem.AddCoins(1);
+            LocalSaveSystem.AddScore(2);
         }
         Destroy(gameObject);
     }
