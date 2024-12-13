@@ -7,35 +7,57 @@ public class ScorePlatformScript : MonoBehaviour
     public LocalSaveSystem LocalSaveSystem;
     public float scoreDistance;
     public int intScoreDistance;
-    public float score—oefficient = 0f;
-    public float speedScale = 0.01f;
     public float fspeed;
-    private double speedSqrt = 9;
-    private double speed;
+    public float startSpeed = 3f;
+    public float speedScale = 0.1f;
+    public float maxSpeed = 20f;
+    public GameObject player;
 
     private Vector2 StartPositionX;
+    private const string SavedScoreKey = "SavedScore";
+    private const string SavedSpeedKey = "SavedSpeed";
 
 
     void Start()
     {
+        if (PlayerPrefs.GetFloat(SavedSpeedKey) != 0f)
+        {
+            startSpeed = PlayerPrefs.GetFloat(SavedSpeedKey);
+        }
+        else Debug.Log("blablalblabl");
         StartPositionX = transform.position;
         LocalSaveSystem = GameObject.FindGameObjectWithTag("Manager").GetComponent<LocalSaveSystem>();
+        fspeed = startSpeed;
     }
 
     void Update()
     {
-        speed = Math.Sqrt(speedSqrt);
-        fspeed = Convert.ToSingle(speed) + score—oefficient;
-        transform.Translate(Vector2.left * fspeed * Time.deltaTime);
+        Debug.Log(PlayerPrefs.GetFloat(SavedSpeedKey));
+        fspeed += speedScale * Time.deltaTime;
+        fspeed = Math.Clamp(fspeed, startSpeed, maxSpeed);
+
+        if (player != null)
+        {
+            transform.Translate(Vector2.left * fspeed * Time.deltaTime);
+        }
+        
         scoreDistance = Vector2.Distance(StartPositionX, transform.position);
         scoreDistance -= scoreDistance % 1;
         intScoreDistance = Convert.ToInt32(scoreDistance);
-        Debug.Log(intScoreDistance);
-
-        LocalSaveSystem.AddScore(intScoreDistance);
+        LocalSaveSystem.AddScore(intScoreDistance + PlayerPrefs.GetInt(SavedScoreKey));
     }
-    private void FixedUpdate()
+    public float GetInitialSpeed()
     {
-        speedSqrt += speedScale;
+        return startSpeed;
     }
+
+    public void SetSpeed(float speed)
+    {
+        fspeed = Mathf.Clamp(speed, startSpeed, maxSpeed);
+    }
+    public float GetCurrentSpeed()
+    {
+        return fspeed;
+    }
+
 }

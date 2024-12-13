@@ -1,32 +1,51 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuUI; // Ссылка на меню паузы
+    // Ссылка на Canvas, который нужно активировать
+    [SerializeField] public Canvas menuCanvas;
 
-    private bool isPaused = false; // Флаг, указывающий, активна ли пауза
+    // Ссылка на кнопку, которая должна исчезнуть
+    [SerializeField] public Button initialButton;
 
-    public void TogglePause()
+    private void Start()
     {
-        if (isPaused)
-        {
-            Resume();
-        }
-        else
-        {
-            Pause();
-        }
+        menuCanvas.gameObject.SetActive(false);
+        initialButton.onClick.AddListener(OnInitialButtonClick);
     }
 
-    private void Pause()
+    private void OnInitialButtonClick()
     {
-        Time.timeScale = 0f; // Останавливаем игровое время
-        isPaused = true; // Ставим флаг паузы
+        // Скрыть начальную кнопку
+        Time.timeScale = 0f;
+        initialButton.gameObject.SetActive(false);
+
+        // Включить Canvas
+        menuCanvas.gameObject.SetActive(true);
     }
 
-    private void Resume()
+    // Функция для кнопки "Начать заново"
+    public void RestartLevel()
     {
-        Time.timeScale = 1f; // Возвращаем нормальное время
-        isPaused = false; // Снимаем флаг паузы
+        Time.timeScale = 1f;
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
+
+    // Функция для кнопки "Вернуться в главное меню"
+    public void ReturnToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu"); // Укажите имя сцены меню
+    }
+
+    // Функция для кнопки "Продолжить"
+    public void ContinueGame()
+    {
+        Time.timeScale = 1f;
+        menuCanvas.gameObject.SetActive(false);
+        initialButton.gameObject.SetActive(true);
     }
 }

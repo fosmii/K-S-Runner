@@ -7,10 +7,6 @@ public class DeathTrigger : MonoBehaviour
     private void Start()
     {
         LocalSaveSystem = GameObject.FindGameObjectWithTag("Manager").GetComponent<LocalSaveSystem>();
-        if (LocalSaveSystem == null)
-        {
-            Debug.Log("pizdaaa");
-        }
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,7 +18,7 @@ public class DeathTrigger : MonoBehaviour
         if (collision.tag == "Respawn")
         {
             LocalSaveSystem.SaveData();
-            SceneManager.LoadScene(0);
+            Destroy(collision.gameObject);
         }
     }
 

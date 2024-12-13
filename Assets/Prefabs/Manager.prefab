@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8569951888695939939
+--- !u!1 &2366039053107065574
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8569951888695939943}
-  - component: {fileID: 8569951888695939942}
-  - component: {fileID: 8569951888695939941}
-  - component: {fileID: 8569951888695939940}
+  - component: {fileID: 2366039053107065570}
+  - component: {fileID: 2366039053107065571}
+  - component: {fileID: 2366039053107065568}
+  - component: {fileID: 2366039053107065581}
+  - component: {fileID: 2366039053107065577}
+  - component: {fileID: 3553402699873532311}
   m_Layer: 0
   m_Name: Manager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8569951888695939943
+--- !u!4 &2366039053107065570
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8569951888695939939}
+  m_GameObject: {fileID: 2366039053107065574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -23.9, y: 20.4, z: -0.084484026}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,13 +36,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8569951888695939942
+--- !u!114 &2366039053107065571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8569951888695939939}
+  m_GameObject: {fileID: 2366039053107065574}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c995f64d10ab36b49815e0cfb44edf28, type: 3}
@@ -53,18 +55,27 @@ MonoBehaviour:
     parallaxFactor: 0.2
     layerLenght: 0
   - layerTransform: {fileID: 0}
+    parallaxFactor: 0.28
+    layerLenght: 0
+  - layerTransform: {fileID: 0}
+    parallaxFactor: 0.35
+    layerLenght: 0
+  - layerTransform: {fileID: 0}
     parallaxFactor: 0.5
+    layerLenght: 0
+  - layerTransform: {fileID: 0}
+    parallaxFactor: 0.75
     layerLenght: 0
   - layerTransform: {fileID: 0}
     parallaxFactor: 1
     layerLenght: 0
---- !u!114 &8569951888695939941
+--- !u!114 &2366039053107065568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8569951888695939939}
+  m_GameObject: {fileID: 2366039053107065574}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c995f64d10ab36b49815e0cfb44edf28, type: 3}
@@ -77,21 +88,67 @@ MonoBehaviour:
     parallaxFactor: 0.2
     layerLenght: 0
   - layerTransform: {fileID: 0}
+    parallaxFactor: 0.28
+    layerLenght: 0
+  - layerTransform: {fileID: 0}
+    parallaxFactor: 0.35
+    layerLenght: 0
+  - layerTransform: {fileID: 0}
     parallaxFactor: 0.5
+    layerLenght: 0
+  - layerTransform: {fileID: 0}
+    parallaxFactor: 0.75
     layerLenght: 0
   - layerTransform: {fileID: 0}
     parallaxFactor: 1
     layerLenght: 0
---- !u!114 &8569951888695939940
+--- !u!114 &2366039053107065581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8569951888695939939}
+  m_GameObject: {fileID: 2366039053107065574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38fdfda6f498b084bb0ebb6e15d6f7fa, type: 3}
+  m_Script: {fileID: 11500000, guid: f5515062c8c865e439a2808bd9561000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinCountText: {fileID: 0}
+  currentCoinText: {fileID: 0}
+  totalCoinText: {fileID: 0}
+  currentScoreText: {fileID: 0}
+  bestScoreText: {fileID: 0}
+--- !u!114 &2366039053107065577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2366039053107065574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f12ffea24f424443b0700ed3e2cf641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuCanvas: {fileID: 0}
+  initialButton: {fileID: 0}
+--- !u!114 &3553402699873532311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2366039053107065574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1f225f3925fce4ebd64a1d5fdd006a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalCoins: 0
+  reviveCost: 200
+  restartButton: {fileID: 0}
+  reviveButton: {fileID: 0}
+  menuButton: {fileID: 0}
+  coinsText: {fileID: 0}
+  player: {fileID: 0}
+  speedController: {fileID: 0}

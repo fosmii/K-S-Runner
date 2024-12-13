@@ -13,12 +13,16 @@ public class CameraControl : MonoBehaviour
 
     void Update()
     {
-        if ((player.position.y > transform.position.y + boxCameraY) || (player.position.y < transform.position.y - boxCameraY))
+        if (player != null)
         {
-            Debug.Log(player.position.y);
-            var newVector3 = new Vector3(transform.position.x, player.position.y, transform.position.z);
-            transform.position = Vector3.Lerp(transform.position, newVector3, cameraSpeedFollow * Time.deltaTime);
+            if ((player.position.y > transform.position.y + boxCameraY) || (player.position.y < transform.position.y - boxCameraY))
+            {
+                Debug.Log(player.position.y);
+                var newVector3 = new Vector3(transform.position.x, player.position.y, transform.position.z);
+                transform.position = Vector3.Lerp(transform.position, newVector3, cameraSpeedFollow * Time.deltaTime);
+            }
         }
+        
     }
 
 

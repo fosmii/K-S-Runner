@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         rb = GetComponent<Rigidbody2D>();
         Application.targetFrameRate = 120;
     }

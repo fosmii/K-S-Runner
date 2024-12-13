@@ -8,6 +8,9 @@ TagManager:
   - ScoreTag
   - Coin
   - Spike
+  - ScorePlatform
+  - Manager
+  - DeathCanvas
   layers:
   - Default
   - TransparentFX

@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LocalSaveSystem: {fileID: 0}
+  player: {fileID: 3535654867539984556, guid: 62e5c64d5b93be24e81bc05b6fcb4e7f, type: 3}
 --- !u!1 &8993583374872078591
 GameObject:
   m_ObjectHideFlags: 0

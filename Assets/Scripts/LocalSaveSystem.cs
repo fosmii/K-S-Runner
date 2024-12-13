@@ -8,21 +8,35 @@ public class LocalSaveSystem : MonoBehaviour
     public TMP_Text currentScoreText;
     public TMP_Text bestScoreText;
 
-    private int currentScore;   // Текущий счет
-    private int currentCoins;   // Текущие монеты (за сессию)
-    private int totalCoins;     // Общие монеты (сохраненные)
+    public int currentScore;   // Текущий счет
+    public int currentCoins;   // Текущие монеты (за сессию)
+    public int totalCoins;     // Общие монеты (сохраненные)
 
-    private const string BestScoreKey = "BestScore"; // Ключ для сохранения Best Score
-    private const string TotalCoinsKey = "TotalCoins"; // Ключ для сохранения общих монет
+    private DeathScreen deathScreen;
+    private const string SavedSpeedKey = "SavedSpeed";
+    private const string SavedScoreKey = "SavedScore";
+    private const string BestScoreKey = "BestScore";
+    private const string TotalCoinsKey = "TotalCoins";
 
     void Start()
     {
         // Загружаем сохраненные данные
         LoadData();
+        deathScreen = FindObjectOfType<DeathScreen>();
+        deathScreen.SetTotalCoins(totalCoins);
 
         // Обнуляем текущие монеты при запуске
         currentCoins = 0;
         currentCoinText.text = $"{currentCoins}";
+        if (PlayerPrefs.HasKey(SavedScoreKey))
+        {
+            if (PlayerPrefs.GetInt(SavedScoreKey) != 0)
+            {
+                currentScore += PlayerPrefs.GetInt(SavedScoreKey);
+            }
+            else Debug.Log(3);
+        }
+        else Debug.Log("nea");
     }
 
     public void AddScore(int amount)
@@ -41,6 +55,7 @@ public class LocalSaveSystem : MonoBehaviour
     public void SaveData()
     {
         // В конце игры объединяем текущие и общие монеты
+        Debug.Log("save");
         totalCoins += currentCoins;
 
         // Сохраняем общие монеты
@@ -48,12 +63,13 @@ public class LocalSaveSystem : MonoBehaviour
 
         // Сохраняем Best Score
         PlayerPrefs.SetInt(BestScoreKey, GetBestScore());
+        PlayerPrefs.SetInt(SavedScoreKey, 0);
+        PlayerPrefs.SetFloat(SavedSpeedKey, 0f);
 
         // Применяем изменения
         PlayerPrefs.Save();
 
         // Обнуляем текущие монеты
-        currentCoins = 0;
         currentCoinText.text = $"{currentCoins}";
     }
 
@@ -105,6 +121,7 @@ public class LocalSaveSystem : MonoBehaviour
 
     void OnApplicationQuit()
     {
+       
         SaveData(); // Сохраняем данные при выходе из игры
     }
 }
