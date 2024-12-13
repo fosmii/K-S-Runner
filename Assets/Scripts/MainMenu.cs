@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         // Назначение действий кнопкам
         playButton.onClick.AddListener(PlayGame);
         exitButton.onClick.AddListener(ExitGame);

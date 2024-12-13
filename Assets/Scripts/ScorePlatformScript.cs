@@ -35,6 +35,7 @@ public class ScorePlatformScript : MonoBehaviour
         Debug.Log(PlayerPrefs.GetFloat(SavedSpeedKey));
         fspeed += speedScale * Time.deltaTime;
         fspeed = Math.Clamp(fspeed, startSpeed, maxSpeed);
+        Debug.Log(fspeed);
 
         if (player != null)
         {

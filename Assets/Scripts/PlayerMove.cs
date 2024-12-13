@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Threading.Tasks;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -49,7 +48,7 @@ public class PlayerMove : MonoBehaviour
         animator.SetFloat("rbvelocityY", rb.velocity.y);
         if (rb.velocity.y < 0)
         {
-            
+
             rb.AddForce(Vector2.down * fallForce);
         }
     }
@@ -63,3 +62,4 @@ public class PlayerMove : MonoBehaviour
         }
     }
 }
+    

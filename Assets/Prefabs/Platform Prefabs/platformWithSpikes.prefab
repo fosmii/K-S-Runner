@@ -255,6 +255,34 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 6612946591740200693, guid: 733c970128f81e443a18b21363e54963, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864891606174126635, guid: 733c970128f81e443a18b21363e54963, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864891606174126635, guid: 733c970128f81e443a18b21363e54963, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864891606174126635, guid: 733c970128f81e443a18b21363e54963, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864891606174126635, guid: 733c970128f81e443a18b21363e54963, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864891606174126635, guid: 733c970128f81e443a18b21363e54963, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864891606174126635, guid: 733c970128f81e443a18b21363e54963, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 733c970128f81e443a18b21363e54963, type: 3}
 --- !u!4 &7381229965134036713 stripped
@@ -271,15 +299,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 753679761977374267, guid: d760e6ecc1678414281a8276e9aa6bf7, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.41960785
       objectReference: {fileID: 0}
     - target: {fileID: 753679761977374267, guid: d760e6ecc1678414281a8276e9aa6bf7, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.41960785
       objectReference: {fileID: 0}
     - target: {fileID: 753679761977374267, guid: d760e6ecc1678414281a8276e9aa6bf7, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.41960785
       objectReference: {fileID: 0}
     - target: {fileID: 753679761977374267, guid: d760e6ecc1678414281a8276e9aa6bf7, type: 3}
       propertyPath: m_SortingOrder
