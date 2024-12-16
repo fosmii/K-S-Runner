@@ -26,30 +26,32 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-
-        isPlatformed = Physics2D.OverlapCircle(checkSmthng.position, platformCheckRadius, platformLayer);
-        if (isPlatformed && Mathf.Abs(rb.velocity.y) < 0.1f)
+        if (gameObject != null)
         {
-            jumpCount = maxJumpCount;
-            animator.SetBool("Jumping", false);
-        }
-        else
-        {
-            animator.SetBool("Jumping", true);
-        }
+            isPlatformed = Physics2D.OverlapCircle(checkSmthng.position, platformCheckRadius, platformLayer);
+            if (isPlatformed && Mathf.Abs(rb.linearVelocity.y) < 0.1f)
+            {
+                jumpCount = maxJumpCount;
+                animator.SetBool("Jumping", false);
+            }
+            else
+            {
+                animator.SetBool("Jumping", true);
+            }
 
 
-        if ((Input.GetMouseButtonDown(0)) && jumpCount >= 1)
-        {
-            jumpCount--;
-            rb.velocity = new Vector2(rb.velocity.x, (minJumpForce) * 1);
+            if ((Input.GetMouseButtonDown(0)) && jumpCount >= 1)
+            {
+                jumpCount--;
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, (minJumpForce) * 1);
 
-        }
-        animator.SetFloat("rbvelocityY", rb.velocity.y);
-        if (rb.velocity.y < 0)
-        {
-
-            rb.AddForce(Vector2.down * fallForce);
+            }
+            animator.SetFloat("rbvelocityY", rb.linearVelocity.y);
+            if (rb.linearVelocity.y < 0)
+            {
+                rb.AddForce(Vector2.down * fallForce);
+                Debug.Log($"rb.velocity.y " +  rb.linearVelocity.y);
+            }
         }
     }
 

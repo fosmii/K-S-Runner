@@ -8937,12 +8937,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gdp_icons_420
+      name: settingsButton
       rect:
         serializedVersion: 2
         x: 73
         y: 4
-        width: 10
+        width: 11
         height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -8958,12 +8958,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gdp_icons_421
+      name: pressedSettings
       rect:
         serializedVersion: 2
         x: 85
         y: 4
-        width: 10
+        width: 11
         height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -9589,8 +9589,8 @@ TextureImporter:
       gdp_icons_380: -467052095
       gdp_icons_169: 1685251675
       gdp_icons_373: 1266871982
-      gdp_icons_418: 835940988
       pressedRevive: -1961004545
+      gdp_icons_418: 835940988
       gdp_icons_312: 22326639
       gdp_icons_316: 1831022113
       gdp_icons_268: 1610309985
@@ -9753,6 +9753,7 @@ TextureImporter:
       gdp_icons_96: 866027562
       gdp_icons_396: -1622091612
       gdp_icons_422: -1391023115
+      settingsButton: -1592039954
       gdp_icons_141: -1344787911
       gdp_icons_184: 983672105
       gdp_icons_376: -1011417375
@@ -9769,6 +9770,7 @@ TextureImporter:
       gdp_icons_172: 554538867
       gdp_icons_258: 1882528003
       gdp_icons_59: -2035637778
+      pressedSettings: -1637215347
       gdp_icons_121: -2099734783
       gdp_icons_252: 2112785661
       gdp_icons_203: -498159990
@@ -9835,7 +9837,6 @@ TextureImporter:
       gdp_icons_439: -2106713663
       pressedRestart: 787872415
       gdp_icons_410: -732677893
-      gdp_icons_421: -1637215347
       gdp_icons_1: -1570026806
       gdp_icons_112: -571899257
       gdp_icons_270: -2118300048
@@ -9933,7 +9934,6 @@ TextureImporter:
       gdp_icons_402: -136358175
       gdp_icons_247: -119035993
       gdp_icons_110: -1593360047
-      gdp_icons_420: -1592039954
       gdp_icons_442: 2030929806
       gdp_icons_115: 191933428
       gdp_icons_67: -830172893

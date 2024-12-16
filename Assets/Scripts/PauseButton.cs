@@ -10,6 +10,11 @@ public class PauseButton : MonoBehaviour
     // —сылка на кнопку, котора€ должна исчезнуть
     [SerializeField] private Button initialButton;
     public GameObject player;
+    private const string SavedSpeedKey = "SavedSpeed";
+    private const string SavedScoreKey = "SavedScore";
+    private const string BestScoreKey = "BestScore";
+    private const string TotalCoinsKey = "TotalCoins";
+    private const string ReviveKey = "Revive";
 
     private void Start()
     {

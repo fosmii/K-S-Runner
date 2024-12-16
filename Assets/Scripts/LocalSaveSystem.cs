@@ -17,6 +17,7 @@ public class LocalSaveSystem : MonoBehaviour
     private const string SavedScoreKey = "SavedScore";
     private const string BestScoreKey = "BestScore";
     private const string TotalCoinsKey = "TotalCoins";
+    private const string ReviveKey = "Revive";
 
     void Start()
     {
@@ -28,15 +29,7 @@ public class LocalSaveSystem : MonoBehaviour
         // Обнуляем текущие монеты при запуске
         currentCoins = 0;
         currentCoinText.text = $"{currentCoins}";
-        if (PlayerPrefs.HasKey(SavedScoreKey))
-        {
-            if (PlayerPrefs.GetInt(SavedScoreKey) != 0)
-            {
-                currentScore += PlayerPrefs.GetInt(SavedScoreKey);
-            }
-            else Debug.Log(3);
-        }
-        else Debug.Log("nea");
+        currentScore += PlayerPrefs.GetInt(SavedScoreKey)/2;
     }
 
     public void AddScore(int amount)
@@ -62,15 +55,13 @@ public class LocalSaveSystem : MonoBehaviour
         PlayerPrefs.SetInt(TotalCoinsKey, totalCoins);
 
         // Сохраняем Best Score
-        PlayerPrefs.SetInt(BestScoreKey, GetBestScore());
+        PlayerPrefs.SetInt(BestScoreKey, PlayerPrefs.GetInt(BestScoreKey, 0));
+        Debug.Log("bestscore " + PlayerPrefs.GetInt(BestScoreKey, 0));
         PlayerPrefs.SetInt(SavedScoreKey, 0);
         PlayerPrefs.SetFloat(SavedSpeedKey, 0f);
 
         // Применяем изменения
         PlayerPrefs.Save();
-
-        // Обнуляем текущие монеты
-        currentCoinText.text = $"{currentCoins}";
     }
 
     private void LoadData()
@@ -100,7 +91,7 @@ public class LocalSaveSystem : MonoBehaviour
 
     private void UpdateBestScore()
     {
-        int bestScore = GetBestScore();
+        int bestScore = PlayerPrefs.GetInt(BestScoreKey, 0);
         if (currentScore > bestScore)
         {
             PlayerPrefs.SetInt(BestScoreKey, currentScore); // Обновляем Best Score
@@ -108,20 +99,9 @@ public class LocalSaveSystem : MonoBehaviour
             bestScoreText.text = $"{currentScore}";
         }
     }
-
-    public int GetBestScore()
-    {
-        return PlayerPrefs.GetInt(BestScoreKey, 0); // Возвращаем сохраненный Best Score или 0
-    }
-
-    public int GetTotalCoins()
-    {
-        return PlayerPrefs.GetInt(TotalCoinsKey, 0); // Возвращаем сохраненные монеты или 0
-    }
-
     void OnApplicationQuit()
     {
-       
+        PlayerPrefs.SetInt(ReviveKey, 1);
         SaveData(); // Сохраняем данные при выходе из игры
     }
 }

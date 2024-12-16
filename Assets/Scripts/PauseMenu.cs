@@ -4,11 +4,14 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    // Ссылка на Canvas, который нужно активировать
-    [SerializeField] public Canvas menuCanvas;
+    public Canvas menuCanvas;
+    public Button initialButton;
 
-    // Ссылка на кнопку, которая должна исчезнуть
-    [SerializeField] public Button initialButton;
+    private const string SavedSpeedKey = "SavedSpeed";
+    private const string SavedScoreKey = "SavedScore";
+    private const string BestScoreKey = "BestScore";
+    private const string TotalCoinsKey = "TotalCoins";
+    private const string ReviveKey = "Revive";
 
     private void Start()
     {
@@ -18,30 +21,28 @@ public class PauseMenu : MonoBehaviour
 
     private void OnInitialButtonClick()
     {
-        // Скрыть начальную кнопку
         Time.timeScale = 0f;
         initialButton.gameObject.SetActive(false);
-
-        // Включить Canvas
         menuCanvas.gameObject.SetActive(true);
     }
 
-    // Функция для кнопки "Начать заново"
     public void RestartLevel()
     {
         Time.timeScale = 1f;
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
+        PlayerPrefs.SetFloat(SavedSpeedKey, 0f);
+        PlayerPrefs.SetInt(SavedScoreKey, 0);
+        PlayerPrefs.SetInt(ReviveKey, 1);
+        PlayerPrefs.Save();
     }
 
-    // Функция для кнопки "Вернуться в главное меню"
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu"); // Укажите имя сцены меню
+        SceneManager.LoadScene("MainMenu");
     }
 
-    // Функция для кнопки "Продолжить"
     public void ContinueGame()
     {
         Time.timeScale = 1f;

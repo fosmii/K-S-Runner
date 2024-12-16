@@ -17,6 +17,7 @@ public class DeathTrigger : MonoBehaviour
     {
         if (collision.tag == "Respawn")
         {
+            Debug.Log("death");
             LocalSaveSystem.SaveData();
             Destroy(collision.gameObject);
         }

@@ -32,20 +32,18 @@ public class ScorePlatformScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(PlayerPrefs.GetFloat(SavedSpeedKey));
-        fspeed += speedScale * Time.deltaTime;
-        fspeed = Math.Clamp(fspeed, startSpeed, maxSpeed);
-        Debug.Log(fspeed);
-
         if (player != null)
         {
+            Debug.Log(PlayerPrefs.GetFloat(SavedSpeedKey));
+            fspeed += speedScale * Time.deltaTime;
+            fspeed = Math.Clamp(fspeed, startSpeed, maxSpeed);
+            Debug.Log(fspeed);
             transform.Translate(Vector2.left * fspeed * Time.deltaTime);
+            scoreDistance = Vector2.Distance(StartPositionX, transform.position);
+            scoreDistance -= scoreDistance % 1;
+            intScoreDistance = Convert.ToInt32(scoreDistance);
+            LocalSaveSystem.AddScore(intScoreDistance + PlayerPrefs.GetInt(SavedScoreKey));
         }
-        
-        scoreDistance = Vector2.Distance(StartPositionX, transform.position);
-        scoreDistance -= scoreDistance % 1;
-        intScoreDistance = Convert.ToInt32(scoreDistance);
-        LocalSaveSystem.AddScore(intScoreDistance + PlayerPrefs.GetInt(SavedScoreKey));
     }
     public float GetInitialSpeed()
     {
